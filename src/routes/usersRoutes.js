@@ -6,7 +6,7 @@ router.get("/", (req,res) => {
     res.send("Esta es la ruta para los usuarios")
 })
 
-router.get("/about", (req,res) => {
+router.get("/about", (req,res) => {    
     res.send("Esta es la ruta de about")
 })
 
