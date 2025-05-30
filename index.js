@@ -1,12 +1,12 @@
-import express, {urlencoded}  from "express"; //importar express
-import dotenv from "dotenv"; // importar dotenv
-import fs from "node:fs";// importar fs
+import express, {urlencoded} from "express"; //importar express
+import dotenv from "dotenv"; //importar dotenv
+import fs from "node:fs"; //importar fs
 import cors from "cors"; //importar cors
 
-dotenv.config();//ejecuta dotenv
+
+dotenv.config() //ejecuta dotenv
 
 const app = express(); //crear una instancia de express
-
 
 const PORT = process.env.PORT || 3000;
 
@@ -22,12 +22,7 @@ app.use(urlencoded({
 
 
 
-app.listen(PORT, () => {
-    console.log("Server is running on port: http://localhost:"+PORT); //iniciar el servidor en el puerto 3000
-})
-
 //MANEJO DE RUTAS
-
 // Leemos todos los archivos dentro del directorio './src/routes' de forma síncrona.
 // fs.readdirSync devuelve un array con los nombres de todos los archivos en ese directorio.
 const routeFiles = fs.readdirSync('./src/routes');
@@ -52,6 +47,8 @@ routeFiles.forEach((file) => {
     })
 })
 
+    
+
 //Iniciar el servidor
 const server = async () => {
     try {
@@ -66,3 +63,8 @@ const server = async () => {
 
 
 server(); //ejecutar la función server
+
+
+
+
+

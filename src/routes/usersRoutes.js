@@ -1,13 +1,12 @@
-import express from 'express'; // import express
+import express from 'express'; //importo express
+import { about, getUser, home } from '../controllers/auth.controller.js';
 
-const router = express.Router();//creo una instancia de express.Router () y lo dejo guardado
+const router = express.Router(); //creo una instancia de express.Router()
 
-router.get ("/",(req,res) =>{
-    res.send("Esta es la ruta para los usuarios")
-})
+router.get("/", home);
 
-router.get ("/about",(req,res) =>{
-    res.send("Esta es la ruta de about")
-})
+router.get("/about", about);
 
-export default router;//exporto la instancia de express.Router()
+router.post("/getUser", getUser); //ruta para obtener el usuario
+
+export default router; //exporto la instancia de express.Router()
