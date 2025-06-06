@@ -30,7 +30,9 @@ import {z} from "zod";
  */
 export const registerSchema = z.object({
   // Nombre de usuario debe ser un string y es obligatorio
-  username: z.string({ required_error: "username is required" }),
+  username: z
+  .string({ required_error: "username is required" })
+  .min(5, {message: "Username must be at least 5 characters"}),
 
   // Email debe ser un string válido y tener formato de email
   email: z
