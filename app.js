@@ -8,7 +8,6 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 
-
 dotenv.config() //ejecuta dotenv
 
 const app = express(); //crear una instancia de express

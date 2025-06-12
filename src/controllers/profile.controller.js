@@ -1,0 +1,1 @@
+//vamos a armar el controlador que sube la imagen y el que pide la imagen del usuario
