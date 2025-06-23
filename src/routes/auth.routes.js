@@ -4,7 +4,7 @@ import { loginSchema, registerSchema } from '../validators/auth.validator.js';
 import {login, logout, profile, register, verifyEmail, verifyToken} from '../controllers/auth.controller.js';
 import { authRequired } from '../middlewares/validateToken.js';
 import uploadIconProfileImage from '../helpers/multer.config.iconProfile.js';
-import { uploadProfileImage } from '../controllers/profile.controller.js';
+import { getProfileImage, uploadProfileImage } from '../controllers/profile.controller.js';
 
 
 const router = express.Router(); //creo una instancia de express.Router()
@@ -24,7 +24,7 @@ router.post('/upload-profile-image',
 ) 
 
 
-/* router.get('/profile-image') */
+router.get('/profile-image', authRequired, getProfileImage)
 
 
 export default router; //exporto la instancia de express.Router()

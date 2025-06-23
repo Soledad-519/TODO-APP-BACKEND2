@@ -21,8 +21,7 @@ export const uploadProfileImage = async (req,res) => {
       if(!req.file){
         return res.status(400).json({message: 'No se ha subido ninguna imagen'});
       }
-
-   
+         
 
       const userId = req.user.id;
       const user = await User.findById(userId);
@@ -54,7 +53,31 @@ export const uploadProfileImage = async (req,res) => {
         
     } catch (error) {
         console.log(error);
-        res.status(500).json({message: 'Error al subir la imagen de perfil'})
-        
+        res.status(500).json({message: 'Error al subir la imagen de perfil'})        
     }
+}
+
+export const getProfileImage = async (req,res) => {
+  try {
+
+    const userId = req.user.id; //traigo la info del usuario a través del middleware de authrequired quien inyecta esta info desde el token
+
+    const user = await User.findById(userId);
+
+    if(!user){
+      return res.status(404).json({message: 'Usuario no encontrado'})
+    }
+
+    if(!user.profileImage){
+      return res.status(404).json({message: 'El usuario no tiene foto de perfil' })
+    }
+
+    res.status(200).json({
+      profileImage: user.profileImage
+    });
+    
+  } catch (error) {
+       console.log(error);
+        res.status(500).json({message: 'Error al obtener la imagen de perfil'})   
+  }
 }
