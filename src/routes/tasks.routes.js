@@ -3,7 +3,7 @@ import { authRequired } from '../middlewares/validateToken.js';
 import uploadsTasksFiles from '../helpers/multer.config.tasks.js';
 import { validateSchema } from '../middlewares/validator.middleware.js';
 import { createTaskSchema } from '../validators/task.validator.js';
-import { createTask } from '../controllers/task.Controller.js';
+import { createTask, getTasks } from '../controllers/task.Controller.js';
 
 const router = Router();
 
@@ -16,6 +16,9 @@ router.post('/tasks',
     validateSchema(createTaskSchema), //SEGUNDO EL ESQUEMA DE VALIDACION
     createTask
 )
+
+// 2 - pedir todas las tareas
+router.get('/tasks', authRequired, getTasks)
 
 
 

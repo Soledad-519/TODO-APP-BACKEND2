@@ -2,8 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import Task from '../models/task.model.js';
 
-
-export const createTask = async (req,res) => {
+// crear tarea
+export const createTask = async (req,res) => { 
 
     //verificar errores de validacion del esquema
     if(req.validationError){
@@ -70,3 +70,24 @@ export const createTask = async (req,res) => {
        return res.status(400).json({message: error.message});         
     }
 }
+
+// listar las  tareas
+export const getTasks = async(req,res) => {
+    try {
+
+    const tasks = await Task.find({
+        user: req.user.id,
+    }).populate("user");
+    
+    if(!tasks){
+        return res.status(404).json({msg: "tasks not found"});
+    }
+
+    return res.status(200).json(tasks);
+        
+    } catch (error) {
+        console.log(error);
+        return res.status(200).json(error.message)        
+    }
+}
+

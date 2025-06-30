@@ -49,7 +49,8 @@ const uploadsTasksFiles = (req, res, next) => {
             } else if(error.code === 'LIMIT_UNEXPECTED_FILE'){
                 req.fileValidationError == "Tipo de archivo incorrecto."
             } else {
-                req.fileValidationError = 'Error al subir el archivo'
+                console.log(error);               
+                req.fileValidationError = `Error al subir el archivo - ${error}` 
             }
         }
 
