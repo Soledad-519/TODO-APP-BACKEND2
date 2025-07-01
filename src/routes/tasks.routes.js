@@ -3,7 +3,8 @@ import { authRequired } from '../middlewares/validateToken.js';
 import uploadsTasksFiles from '../helpers/multer.config.tasks.js';
 import { validateSchema } from '../middlewares/validator.middleware.js';
 import { createTaskSchema } from '../validators/task.validator.js';
-import { createTask, getTask, getTasks, updateTask } from '../controllers/task.Controller.js';
+import { createTask, deleteTask, getTask, getTasks, updateTask } from '../controllers/task.Controller.js';
+import { cleanUpTaskFiles } from '../middlewares/cleanUpTaskFiles.js';
 
 const router = Router();
 
@@ -30,6 +31,9 @@ router.put(
     uploadsTasksFiles,
     updateTask
 )
+
+// 5 - eliminar una tarea
+router.delete('/tasks/:id', authRequired, cleanUpTaskFiles , deleteTask)
 
 
 

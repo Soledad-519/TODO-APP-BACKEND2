@@ -354,7 +354,181 @@
 		},
 		{
 			"name": "TASK",
-			"item": []
+			"item": [
+				{
+					"name": "createTaskWithFiles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTlkODY1YzU2OWJkZmU0MTVmZWYxZSIsInVzZXJuYW1lIjoiRXplcXVpZWwiLCJlbWFpbCI6InN2YXJpdW1mb29AZ21haWwuY29tIiwiaWF0IjoxNzUxMzI0MDU3LCJleHAiOjE3NTEzMjc2NTd9.k1LOsjUohMUiObNNuW37OZCQqgZgnjWqmWMN0upa36w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "prueba de subida de tarea con files II",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOneTaskById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/tasks/68631317fbb1ff24f876f3f2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"68631317fbb1ff24f876f3f2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateTaskWithFiles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTlkODY1YzU2OWJkZmU0MTVmZWYxZSIsInVzZXJuYW1lIjoiRXplcXVpZWwiLCJlbWFpbCI6InN2YXJpdW1mb29AZ21haWwuY29tIiwiaWF0IjoxNzUxMzI2NDE5LCJleHAiOjE3NTEzMzAwMTl9.9rKfm79U3Bc6mXNmj9OaWeI32__pZ1xranQ9GeMxH6A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "TAREA ACTUALIZADA con una imagen nueva",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Esta tarea fue actualizada por la mejor comisión",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/C:/Users/MICHICOMPU/Downloads/stackblitz-icon-logo-png_seeklogo-444239.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/tasks/686315a3d3294313ff6d8fb1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"686315a3d3294313ff6d8fb1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTask",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NTlkODY1YzU2OWJkZmU0MTVmZWYxZSIsInVzZXJuYW1lIjoiRXplcXVpZWwiLCJlbWFpbCI6InN2YXJpdW1mb29AZ21haWwuY29tIiwiaWF0IjoxNzUxMzI5MDcwLCJleHAiOjE3NTEzMzI2NzB9.NdNl_rtmJBRKLV8cnU8Anmfoj5YrAqemu3e-Tf0pEs8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/tasks/686315a3d3294313ff6d8fb1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"tasks",
+								"686315a3d3294313ff6d8fb1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

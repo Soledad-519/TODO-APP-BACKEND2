@@ -57,7 +57,6 @@ export const createTask = async (req,res) => {
         return res.status(201).json(savedTask)
         
     } catch (error) {
-
          if(req.files && req.files.length > 0){
             req.files.forEach(file => {
                 const filePath = path.join('public', 'uploads', 'tasks', file.filename);
@@ -112,9 +111,7 @@ export const getTask = async(req,res) => {
     }
 }
 
-
 // editar una tarea
-
 export const updateTask = async(req,res) => {
     // 1 - Verificar errores de multer (title o archivos inválidos)     
     if(req.fileValidationError){
@@ -166,5 +163,23 @@ export const updateTask = async(req,res) => {
         }
         console.log(error);        
         return res.status(500).json({message: error.message})        
+    }
+}
+
+export const deleteTask = async(req,res) => {
+    try {
+
+        const taskFound = await Task.findByIdAndDelete(req.params.id);
+
+        if(!taskFound){
+            return res.status(404).json({message: "task not found"})
+        }
+            
+        return res.status(200).json({message: 'Task Deleted!'})
+    
+
+    } catch (error) {
+       console.log(error);
+       return res.status(500).json({message: error.message})        
     }
 }
