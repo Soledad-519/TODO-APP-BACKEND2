@@ -1,3 +1,4 @@
+
 import app from "./app.js";
 import connectToMongoDB from "./db.js";
 
@@ -19,15 +20,3 @@ const server = async () => {
 }
 
 server(); //ejecutar la función server
-
-
-
-
-
-
-
-
-
-
-
-

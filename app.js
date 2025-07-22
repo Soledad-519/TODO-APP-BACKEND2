@@ -1,3 +1,4 @@
+
 import express, { urlencoded } from "express"; //importar express
 import dotenv from "dotenv"; //importar dotenv
 import fs from "node:fs"; //importar fs
@@ -63,13 +64,7 @@ routeFiles.forEach((file) => {
 })
 
 
-
 export default app;
-
-
-
-
-
 
 
 
